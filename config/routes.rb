@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
+  get 'home/index'
   resources :clients do
-    resources :pets do 
-      resources :pet_histories
-    end
+    resources :pets 
   end
   
-  
+  resources :pet_histories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  #root to: "pets#index"
+  root 'clients#index'
 end
