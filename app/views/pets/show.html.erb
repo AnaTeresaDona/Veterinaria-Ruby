@@ -1,20 +1,46 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @pet.name %>
 </p>
 
 <p>
-  <strong>Race:</strong>
+  <strong>Raza:</strong>
   <%= @pet.race %>
 </p>
 
 <p>
-  <strong>Birthdate:</strong>
+  <strong>Cumpleaños:</strong>
   <%= @pet.birthdate %>
 </p>
+<!--agrego tabla con los datos de peso y altura pedidos -->
+<hr/>
+<h2> Historial</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Descripción</th>
+      <th>Peso</th>
+      <th>Altura</th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @pet.pet_histories.each do |pet_history|%>
+    <tr>
+      <td><%= pet_history.created_at %></td>
+      <td><%= pet_history.description %></td>
+      <td><%= pet_history.weight %></td>
+      <td><%= pet_history.heigth%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+<hr/>
+
+<!--FIN --agrego tabla con los datos de peso y altura pedidos -->
 
 <table>
   <thead>
@@ -36,5 +62,5 @@
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+<%= link_to 'Editar', client_pets_path(@client) %> |
+<%= link_to 'Volver', client_pets_path(@client) %>
